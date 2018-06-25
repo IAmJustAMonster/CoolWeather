@@ -4,8 +4,9 @@ package com.example.coolweather;
 //import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+//import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -82,22 +83,22 @@ public class ChooseAreaFragment extends Fragment {
      */
     private int currentLevel;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 //        return super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.choose_area, container, false);
+        View view = inflater.inflate(R.layout.fragment_choose_area, container, false);
         titleText = (TextView) view.findViewById(R.id.title_text);
         backButton = (Button) view.findViewById(R.id.back_button);
         listView = (ListView) view.findViewById(R.id.list_view);
         adapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_list_item_1, dataList);
+        listView.setAdapter(adapter);  //显示listView列表
         return view;
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -131,6 +132,7 @@ public class ChooseAreaFragment extends Fragment {
         titleText.setText("中国");
         backButton.setVisibility(View.GONE);
         provinceList = DataSupport.findAll(Province.class);
+//        Log.d("Fragment", Integer.toString(provinceList.size())); //provinceList.size() = 34
         if (provinceList.size() > 0) {
             dataList.clear();
             for (Province province : provinceList) {
