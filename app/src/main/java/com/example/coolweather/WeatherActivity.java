@@ -150,7 +150,7 @@ public class WeatherActivity extends AppCompatActivity {
                     public void run() {
                         Toast.makeText(WeatherActivity.this, "获取天气信息失败",
                                 Toast.LENGTH_SHORT).show();
-                        swipeRefresh.setRefreshing(false);
+                        swipeRefresh.setRefreshing(false); // 刷新时间结束，隐藏刷新进度条
                     }
                 });
             }
@@ -174,6 +174,7 @@ public class WeatherActivity extends AppCompatActivity {
                             Toast.makeText(WeatherActivity.this,
                                     "获取天气信息失败", Toast.LENGTH_SHORT).show();
                         }
+                        swipeRefresh.setRefreshing(false); // 刷新时间结束，隐藏刷新进度条
                     }
                 });
             }
