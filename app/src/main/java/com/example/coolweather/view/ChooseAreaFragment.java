@@ -1,4 +1,4 @@
-package com.example.coolweather;
+package com.example.coolweather.view;
 
 
 import android.app.ProgressDialog;
@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.coolweather.R;
 import com.example.coolweather.db.City;
 import com.example.coolweather.db.County;
 import com.example.coolweather.db.Province;
